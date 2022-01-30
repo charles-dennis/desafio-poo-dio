@@ -10,17 +10,32 @@ public class Dev {
 	private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
-            
+    
+    public void inscreverAceleracao(CursoAceleracao aceleracao){
+        this.conteudosInscritos.addAll(aceleracao.getConteudos());
+        aceleracao.getDevsInscritos().add(this);
+    }    
+    
     public void inscreverBootcamp(BootCamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevsInscritos().add(this);
     }
 
-    public void progredir() {
+    public void progredirBootCamp() {
         Optional<Conteudo> conteudo = this.conteudosInscritos.stream().findFirst();
         if(conteudo.isPresent()) {
             this.conteudosConcluidos.add(conteudo.get());
             this.conteudosInscritos.remove(conteudo.get());
+        } else {
+            System.err.println("Você não está matriculado em nenhum conteúdo!");
+        }
+    }
+    
+    public void progredirAceleracao() {
+        Optional<Conteudo> aceleracao = this.conteudosInscritos.stream().findFirst();
+        if(aceleracao.isPresent()) {
+            this.conteudosConcluidos.add(aceleracao.get());
+            this.conteudosInscritos.remove(aceleracao.get());
         } else {
             System.err.println("Você não está matriculado em nenhum conteúdo!");
         }

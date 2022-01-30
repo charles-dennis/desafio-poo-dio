@@ -26,10 +26,6 @@ public class Main {
 	        mentoria.setDescricao("descrição mentoria java");
 	        mentoria.setData(dataFormatada.format(LocalDate.now()));
 
-	        /*System.out.println(curso1);
-	        System.out.println(curso2);
-	        System.out.println(mentoria);*/
-
 	        BootCamp bootcamp = new BootCamp();
 	        bootcamp.setNome("Bootcamp Java Developer");
 	        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
@@ -41,8 +37,8 @@ public class Main {
 	        devCamila.setNome("Camila");
 	        devCamila.inscreverBootcamp(bootcamp);
 	        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-	        devCamila.progredir();
-	        devCamila.progredir();
+	        devCamila.progredirBootCamp();
+	        devCamila.progredirBootCamp();
 	        System.out.println("-");
 	        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
 	        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
@@ -54,9 +50,9 @@ public class Main {
 	        devJoao.setNome("Joao");
 	        devJoao.inscreverBootcamp(bootcamp);
 	        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-	        devJoao.progredir();
-	        devJoao.progredir();
-	        devJoao.progredir();
+	        devJoao.progredirBootCamp();
+	        devJoao.progredirBootCamp();
+	        devJoao.progredirBootCamp();
 	        System.out.println("-");
 	        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
 	        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
@@ -68,9 +64,24 @@ public class Main {
 	        CursoAceleracao aceleracao1 = new CursoAceleracao();
 	        aceleracao1.setTitulo("Java-Spring");
 	        aceleracao1.setDescricao("Spring boot para iniciante");
+	        aceleracao1.setCargaHoraria(9);
+	        aceleracao1.getConteudos().add(curso1);
+	        aceleracao1.getConteudos().add(curso2);
+	        aceleracao1.getConteudos().add(mentoria);
+	        aceleracao1.getConteudos().add(aceleracao1);
+	        
 	        
 	        Dev devCharles = new Dev();
 	        devCharles.setNome("Charles");
+	        devCharles.inscreverAceleracao(aceleracao1);
+	        System.out.println("Conteúdos Inscritos por Charles:" + devCharles.getConteudosInscritos());
+	        devCharles.progredirAceleracao();
+	        devCharles.progredirAceleracao();
+	        devCharles.progredirAceleracao();
+	        System.out.println("-");
+	        System.out.println("Conteúdos Inscritos por charles:" + devCharles.getConteudosInscritos());
+	        System.out.println("Conteúdos Concluidos por charles:" + devCharles.getConteudosConcluidos());
+	        System.out.println("XP:" + devCharles.calcularTotalXp());
 	        
 
 	}
