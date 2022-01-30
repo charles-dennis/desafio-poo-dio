@@ -78,6 +78,7 @@ public class Main {
 	        devCharles.progredirAceleracao();
 	        devCharles.progredirAceleracao();
 	        devCharles.progredirAceleracao();
+			devCharles.progredirAceleracao();
 	        System.out.println("-");
 	        System.out.println("Conteúdos Inscritos por charles:" + devCharles.getConteudosInscritos());
 	        System.out.println("Conteúdos Concluidos por charles:" + devCharles.getConteudosConcluidos());
